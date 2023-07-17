@@ -1,0 +1,26 @@
+{
+  "node color": [ 0.7, 1.0, 0.0, 0.5 ],
+  "node color click": [ 0.7, 1.0, 0.0, 0.7 ],
+  "node title": {
+    "text": "DemoAss3"
+  },
+  "input point": [
+    {
+      "point color": [ 1.0, 1.0, 0.0, 1.0 ],
+      "point text": {
+        "text": "input "
+      },
+      "point param": 3
+    }
+  ],
+  "output point": [
+    {
+      "point color": [ 1.0, 1.0, 0.0, 1.0 ],
+      "point text": {
+        "text": "output"
+      },
+      "point param": 3
+    }
+  ],
+  "node type": 3
+}

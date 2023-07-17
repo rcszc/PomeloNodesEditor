@@ -1,0 +1,47 @@
+{
+  "node color": [ 0.7, 0.0, 1.0, 0.5 ],
+  "node color click": [ 0.7, 0.0, 1.0, 0.7 ],
+  "node title": {
+    "text": "DemoAss1"
+  },
+  "input point": [
+    {
+      "point color": [ 1.0, 0.2, 0.0, 1.0 ],
+      "point text": {
+        "text": "input "
+      },
+      "point param": 1
+    },
+    {
+      "point color": [ 1.0, 0.2, 0.0, 1.0 ],
+      "point text": {
+        "text": "input "
+      },
+      "point param": 1
+    },
+    {
+      "point color": [ 1.0, 0.2, 0.0, 1.0 ],
+      "point text": {
+        "text": "input "
+      },
+      "point param": 1
+    }
+  ],
+  "output point": [
+    {
+      "point color": [ 0.0, 1.0, 0.5, 1.0 ],
+      "point text": {
+        "text": "output"
+      },
+      "point param": 2
+    },
+    {
+      "point color": [ 0.0, 1.0, 0.5, 1.0 ],
+      "point text": {
+        "text": "output"
+      },
+      "point param": 2
+    }
+  ],
+  "node type": 1
+}

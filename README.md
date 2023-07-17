@@ -32,6 +32,10 @@ PNErender::rendertick_gui(drawflag, []() {
 
         PNEpreset::component_guipanel();
 
+	// ImGui::Begin("Test");
+	// ImGui::Text("Hello World");
+	// ImGui::End();
+
     });
 ```
 提供了一个简易的组件面板, 以便测试.

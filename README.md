@@ -5,6 +5,8 @@
 - 依赖GUI库:      ImGui ImNodes
 - 依赖Json解析库: RapidJSON
 
+[2023.07.18] 修改了输入允许多个连接的bug.
+
 编辑器初始化 ImGui 和 ImNodes
 ```cpp
 void PNEinit::initialization_imgui(

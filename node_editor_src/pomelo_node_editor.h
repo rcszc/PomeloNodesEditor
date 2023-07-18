@@ -110,7 +110,7 @@ namespace pne_node_component {
 		PARAMTYPE   point_param_type;
 		std::any    point_param;   // connect point param
 
-		std::vector<int32_t> linkline_number;   // 互联标识 (LineId).
+		int32_t linkline_number;   // 互联标识 (LineId).
 	};
 
 	// node: output connect point.

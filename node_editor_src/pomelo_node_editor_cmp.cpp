@@ -34,6 +34,11 @@ namespace pne_node_component {
     // 连接管理系统.
     namespace LINKSYSTEM {
 
+        void component_link_break(
+            unordered_map<int32_t, pne_node_component::node_link_line>& linklines,
+            int linkline_id
+        );
+
         void component_link_lines(
             vector<pne_node_component::node_attribute>& nodes,
             unordered_map<int32_t, pne_node_component::node_link_line>& linklines
@@ -54,7 +59,10 @@ namespace pne_node_component {
                         if ((nodes[i].in_connect[j].point_number == create_link.begin_point) || 
                             (nodes[i].in_connect[j].point_number == create_link.end_point)) 
                         {
-                            nodes[i].in_connect[j].linkline_number.push_back(link_count);
+                            // 删除之前连接.
+                            component_link_break(linklines, nodes[i].in_connect[j].linkline_number);
+                            nodes[i].in_connect[j].linkline_number = link_count;
+
                             type_temp[0] = nodes[i].in_connect[j].point_param_type;
 
                             create_link.link_line_color = nodes[i].in_connect[j].point_color;
@@ -101,12 +109,10 @@ namespace pne_node_component {
                     for (size_t j = 0; j < nodes[i].in_connect.size(); ++j) {
 
                         // input 删除相关互联.
-                        for (size_t d = 0; d < nodes[i].in_connect[j].linkline_number.size(); ++d) {
-                            component_link_break(
-                                __NODE_LINESLINK,
-                                nodes[i].in_connect[j].linkline_number[d]
-                            );
-                        }
+                        component_link_break(
+                            __NODE_LINESLINK,
+                            nodes[i].in_connect[j].linkline_number
+                        );
                     }
                     for (size_t j = 0; j < nodes[i].out_connect.size(); ++j) {
 

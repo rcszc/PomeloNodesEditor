@@ -1,0 +1,37 @@
+{
+  "node color": [ 0.7, 0.0, 1.0, 0.5 ],
+  "node color click": [ 0.7, 0.0, 1.0, 0.7 ],
+  "node title": "DemoAss1",
+  "node image": "pomelo_node_editor/components_json/demo_texture.jpg",
+  "node image dwsz": [160, 160],
+  "input point": [
+    {
+      "point color": [ 1.0, 0.2, 0.0, 1.0 ],
+      "point text": "In.A",
+      "point param": 1
+    },
+    {
+      "point color": [ 1.0, 0.2, 0.0, 1.0 ],
+      "point text": "In.A",
+      "point param": 1
+    },
+    {
+      "point color": [ 1.0, 0.2, 0.0, 1.0 ],
+      "point text": "In.A",
+      "point param": 1
+    }
+  ],
+  "output point": [
+    {
+      "point color": [ 0.0, 1.0, 0.5, 1.0 ],
+      "point text": "Out.B",
+      "point param": 2
+    },
+    {
+      "point color": [ 0.0, 1.0, 0.5, 1.0 ],
+      "point text": "Out.B",
+      "point param": 2
+    }
+  ],
+  "node type": 1
+}

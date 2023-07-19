@@ -6,6 +6,7 @@
 - 依赖Json解析库: RapidJSON
 
 [2023.07.18] 修改了输入允许多个连接的bug.
+[2023.07.19] 新增节点显示纹理图片, 以及纹理句柄的操作.
 
 编辑器初始化 ImGui 和 ImNodes
 ```cpp
@@ -60,6 +61,36 @@ void PNEGET_node_link_data(
 	std::unordered_map<int32_t, pne_node_component::node_link_line>& link_data
 );
 ```
+
+[2023.07.19]:
+组件加载添加了 LdFuncPtr 函数指针, 用于加载纹图片, 加载函数位于external里.
+如果不需要加载图片文件即不用传入 pne_ext_component::extcmp_loadtexture.
+```cpp
+pne_node_component::node_attribute load_component_json(
+	StrText   jsonpath, 
+	bool&     state,
+	LdFuncPtr texfunc
+);
+
+PNEpreset::component_load(
+        "xxx.json", 
+        pne_ext_component::extcmp_loadtexture
+);
+```
+
+class NodeTextureIO 用于获取和设置每个节点的opengl纹理句柄.
+```cpp
+PNEtexture::NodeTextureIO Tex(1);
+Tex.get_texture_handle();
+Tex.set_texture_handle(1);
+```
+
+释放所有在 pomelo_node_external 创建的opengl纹理句柄.
+```cpp
+PNEext_free::free_node_texture();
+```
+
+节点组件结构体改动具体参考 pomelo_node_editor.h 115-171 lins
 
 持续更新中...
 

@@ -2,11 +2,12 @@
 
 #ifndef _POMELO_NODE_EDITOR_H
 #define _POMELO_NODE_EDITOR_H
+
 #include <iostream>
 #include <vector>
 #include <string>
 #include <unordered_map>
-#include <any> // type.
+#include <any>
 #include <functional>
 #include <GLFW/glfw3.h>
 
@@ -15,6 +16,8 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+
+#include "pomelo_node_external.h"
 
 #if defined(_MSV_VER) && (_MSC_VER >= 1900) && !defined(IMGUI_DISABLE_WIN32_FUNCTIONS)
 #pragma comment(lib,"legacy_stdio_definitons.lib")
@@ -27,6 +30,8 @@ typedef const char*        StrText;
 
 typedef unsigned long long NODETYPE;
 typedef unsigned short     PARAMTYPE;
+
+typedef pne_ext_component::texture_info(*LdFuncPtr)(StrText);
 
 namespace PNEinit {
 	// glfw imgui initparam. 
@@ -57,7 +62,7 @@ namespace PNEinit {
 
 namespace PNErender {
 	/*
-	* @param  bool (GUI绘制标志)
+	* @param  bool (GUI draw flag)
 	* @return void
 	*/
 	void rendertick_gui(bool& render_flag, std::function<void()> render_gui);
@@ -73,10 +78,27 @@ namespace PNEpreset {
 	// render panel.
 	void component_guipanel();
 	/*
-	* @param  const char* (json config path)
-	* @return bool        (flag)
+	* @param  const char*         (json config path)
+	* @param  LdFuncPtr = nullptr (load texture function)
+	* @return bool                (flag)
 	*/
-	bool component_load(StrText nodecmp_jsonpath);
+	bool component_load(StrText nodecmp_jsonpath, LdFuncPtr texfunction = nullptr);
+}
+
+namespace PNEtexture {
+
+	// 通过 id 获取节点 纹理句柄.
+	class NodeTextureIO {
+	protected:
+		int64_t vector_node_pos = -1;
+
+	public:
+		NodeTextureIO(uint32_t node_id);
+		~NodeTextureIO() {};
+
+		uint32_t get_texture_handle();
+		void     set_texture_handle(uint32_t hd);
+	};
 }
 
 namespace pne_system_style {
@@ -126,12 +148,20 @@ namespace pne_node_component {
 		std::vector<int32_t> linkline_number;   // 互联标识 (LineId).
 	};
 
+	struct node_texture {
+
+		uint32_t node_handle;       // node texture handle
+		ImVec2   node_texdraw_size; // node texture render size xy.
+	};
+
 	struct node_attribute {
 
 		uint32_t    node_number;      // node unique
 		ImVec4      node_color;       // node rgba
 		ImVec4      node_color_click; // node click rgba
 		std::string node_title;       // node str title	
+
+		node_texture node_tex; // texture
 
 		std::vector<node_in_connectpoint>  in_connect;
 		std::vector<node_out_connectpoint> out_connect;
@@ -149,7 +179,7 @@ namespace pne_node_component {
 	extern bool editor_fixed_move;
 
 	void component_render(
-		std::vector<node_attribute>& dwnodes,
+		std::vector<node_attribute>&                                     dwnodes,
 		std::unordered_map<int32_t, pne_node_component::node_link_line>& lines
 	);
 
@@ -161,7 +191,11 @@ namespace pne_node_component {
 extern std::vector<pne_node_component::node_attribute> __NODE_COMPONENTS;
 // dynamics components list. (已分配属性值,动态组件)
 extern std::vector<pne_node_component::node_attribute> __NODE_COMPONENTS_DCS;
-extern std::unordered_map<int32_t, pne_node_component::node_link_line> __NODE_LINESLINK;
+
+extern std::unordered_map<
+	int32_t, 
+	pne_node_component::node_link_line
+> __NODE_LINESLINK;
 
 namespace pne_node_configfile {
 	/*
@@ -169,8 +203,9 @@ namespace pne_node_configfile {
 	* @return _pne_node_component::node_attribute
 	*/
 	pne_node_component::node_attribute load_component_json(
-		StrText jsonpath, 
-		bool&   state
+		StrText   jsonpath, 
+		bool&     state,
+		LdFuncPtr texfunc
 	);
 }
 

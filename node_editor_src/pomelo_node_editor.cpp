@@ -70,7 +70,7 @@ namespace PNErender {
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-
+       
         // draw flag. 
         // render node state False: Not Draw&Compute.
         if (render_flag) 
@@ -133,7 +133,7 @@ namespace PNEpreset {
             ImGui::GetStyle().FrameRounding = 7.2f;
 
             // Components List.
-            for (auto __NODE_COMPONENT : __NODE_COMPONENTS) {
+            for (const auto& __NODE_COMPONENT : __NODE_COMPONENTS) {
                 // create components.
                 if (ImGui::Button(__NODE_COMPONENT.node_title.c_str(), ImVec2(220.0f, 32.0f))) {
                     // create copy node_attribute.
@@ -153,7 +153,7 @@ namespace PNEpreset {
         ImGui::End();
     }
 
-    bool component_load(StrText nodecmp_jsonpath) {
+    bool component_load(StrText nodecmp_jsonpath, LdFuncPtr texfunction) {
         bool rteurn_flag = true;
 
         // load config json => push component.
@@ -161,17 +161,44 @@ namespace PNEpreset {
             pne_node_configfile::load_component_json
             (
                 nodecmp_jsonpath, 
-                rteurn_flag
+                rteurn_flag,
+                texfunction
             )
         );
         return rteurn_flag;
     }
 }
 
+namespace PNEtexture {
+
+    NodeTextureIO::NodeTextureIO(uint32_t node_id) {
+        // node id => vector pos
+        for (size_t i = 0; i < __NODE_COMPONENTS_DCS.size(); ++i)
+            if (__NODE_COMPONENTS_DCS[i].node_number == node_id)
+                vector_node_pos = i;
+    }
+
+    uint32_t NodeTextureIO::get_texture_handle() {
+        if (vector_node_pos == -1)
+            return NULL;
+        else
+            return __NODE_COMPONENTS_DCS[vector_node_pos].node_tex.node_handle;
+    }
+
+    void NodeTextureIO::set_texture_handle(uint32_t hd) {
+        if (hd > 0)
+            __NODE_COMPONENTS_DCS[vector_node_pos].node_tex.node_handle = hd;
+    }
+}
+
 using namespace pne_node_component;
 namespace pne_node_configfile {
 
-    node_attribute load_component_json(StrText jsonpath, bool& state) {
+    node_attribute load_component_json(
+        StrText   jsonpath, 
+        bool&     state,
+        LdFuncPtr texfunc
+    ) {
         node_attribute return_node_cmp = {};
 
         ifstream read_jsonfile(jsonpath);
@@ -217,14 +244,30 @@ namespace pne_node_configfile {
                 }
 
                 // 解析 node_title "node title"
-                if (jsondoc.HasMember("node title") && jsondoc["node title"].IsObject()) {
+                if (jsondoc.HasMember("node title") && jsondoc["node title"].IsString()) {
 
                     const auto& nodeTitle = jsondoc["node title"];
 
-                    if (nodeTitle.HasMember("text") && nodeTitle["text"].IsString()) {
-                        
-                        return_node_cmp.node_title = nodeTitle["text"].GetString();
-                    }
+                    return_node_cmp.node_title = nodeTitle.GetString();
+                }
+
+                // 解析 node_tex "node image"
+                if (jsondoc.HasMember("node image") && jsondoc["node image"].IsString()) {
+
+                    const auto& nodeTitle = jsondoc["node image"];
+
+                    // 加载纹理句柄.
+                    if (texfunc != nullptr)
+                        return_node_cmp.node_tex.node_handle = texfunc(nodeTitle.GetString()).texture_handle;
+                }
+
+                // 解析 node_tex "node image dwsz" 纹理绘制尺寸.
+                if (jsondoc.HasMember("node image dwsz") && jsondoc["node image dwsz"].IsArray()) {
+
+                    const auto& nodeTexDwSize = jsondoc["node image dwsz"];
+
+                    return_node_cmp.node_tex.node_texdraw_size.x = nodeTexDwSize[0].GetFloat();
+                    return_node_cmp.node_tex.node_texdraw_size.y = nodeTexDwSize[1].GetFloat();
                 }
 
                 // 解析 in_point "input point"
@@ -247,14 +290,11 @@ namespace pne_node_configfile {
                             inConnectPoint.point_color.w = pointColor[3].GetFloat();
                         }
 
-                        if (point.HasMember("point text") && point["point text"].IsObject()) {
+                        if (point.HasMember("point text") && point["point text"].IsString()) {
 
                             const auto& pointText = point["point text"];
 
-                            if (pointText.HasMember("text") && pointText["text"].IsString()) {
-
-                                inConnectPoint.point_text = pointText["text"].GetString();
-                            }
+                            inConnectPoint.point_text = pointText.GetString();
                         }
 
                         if (point.HasMember("point param") && point["point param"].IsInt()) {
@@ -286,14 +326,11 @@ namespace pne_node_configfile {
                             outConnectPoint.point_color.w = pointColor[3].GetFloat();
                         }
 
-                        if (point.HasMember("point text") && point["point text"].IsObject()) {
+                        if (point.HasMember("point text") && point["point text"].IsString()) {
 
                             const auto& pointText = point["point text"];
 
-                            if (pointText.HasMember("text") && pointText["text"].IsString()) {
-
-                                outConnectPoint.point_text = pointText["text"].GetString();
-                            }
+                            outConnectPoint.point_text = pointText.GetString();
                         }
 
                         if (point.HasMember("point param") && point["point param"].IsInt()) {

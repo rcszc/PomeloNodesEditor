@@ -1,23 +1,19 @@
 {
   "node color": [ 0.7, 0.7, 0.7, 0.5 ],
   "node color click": [ 0.7, 0.7, 0.7, 0.7 ],
-  "node title": {
-    "text": "DemoAss4"
-  },
+  "node title": "DemoAss4",
+  "node image": "",
+  "node image dwsz": [ 160, 160 ],
   "input point": [
     {
       "point color": [ 1.0, 0.2, 0.0, 1.0 ],
-      "point text": {
-        "text": "input"
-      },
+      "point text": "In.A",
       "point param": 1
     },
     {
       "point number": 2,
       "point color": [ 1.0, 0.2, 0.0, 1.0 ],
-      "point text": {
-        "text": "input"
-      },
+      "point text": "In.A",
       "point param": 1
     }
   ],
@@ -25,11 +21,21 @@
     {
       "point number": 1,
       "point color": [ 1.0, 0.2, 0.0, 1.0 ],
-      "point text": {
-        "text": "output"
-      },
+      "point text": "Out.A",
       "point param": 1
+    },
+    {
+      "point number": 1,
+      "point color": [ 1.0, 0.2, 0.0, 1.0 ],
+      "point text": "Out.A",
+      "point param": 1
+    },
+    {
+      "point number": 1,
+      "point color": [ 1.0, 1.0, 0.0, 1.0 ],
+      "point text": "Out.C",
+      "point param": 3
     }
   ],
-  "node type": 1
+  "node type": 4
 }

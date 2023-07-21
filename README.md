@@ -5,4 +5,4 @@
 
 2023-07-21T12:02:56Z version 1.0 ahpla
 
-![IMG](https://github.com/rcszc/PomeloNodesEditor/profile/PomeloEditor.png)
+![IMG](https://github.com/rcszc/PomeloNodesEditor/blob/main/profile/PomeloEditor.png)

@@ -58,25 +58,26 @@ PneDemo->PushNodeComponent("components_json/demo_cmp_ass1.json");
 struct NodesLines {
 
         std::vector<pne_datadefine::node_attribute> nodes;
-		std::unordered_map<
-			int32_t,
-			pne_datadefine::node_link_line
-		> lines;
+	std::unordered_map<
+		int32_t,
+		pne_datadefine::node_link_line
+	> lines;
 
-		size_t NodesLines_datasize;
+	size_t NodesLines_datasize;
 		
-		NodesLines& operator=(const NodesLines& other) {
-                        if (this != &other) {
+	NodesLines& operator=(const NodesLines& other) {
+		if (this != &other) {
 
-                                nodes = other.nodes;
-				lines = other.lines;
-				NodesLines_datasize = other.NodesLines_datasize;
+			nodes = other.nodes;
+			lines = other.lines;
+			NodesLines_datasize = other.NodesLines_datasize;
                 }
                 return *this;
         }
 };
 ```
 
+### void EdiorGUI::ReadNodeLinesData(nodes..., lines...)
 1.0.0 读取解析文件加载 节点 & 互连 数据. 读取解析 => 搜索组件 => 创建节点编辑器源数据.
 ```cpp
 void EdiorGUI::ReadNodeLinesData(
@@ -84,3 +85,17 @@ void EdiorGUI::ReadNodeLinesData(
         std::vector<IODATA::SaveLineData>& lines
 );
 ```
+
+### bool EdiorGUI::RenderEditor = true
+1.0.0 节点编辑器渲染标志, False: 不会渲染计算 ImNodes 部分以纯 ImGui 使用.
+```cpp
+PneDemo.RenderEditor = false;
+```
+
+## 附加
+具体数据结构参考 PomeloNodeEditor_DataDefine.h 文件.
+在 PomeloNodeEditor.cpp PomeloNodeEditor_External.cpp 中使用了windows库.
+目前不能传入纹理句柄, 以及节点字体缩进存在问题.
+持续更新中...
+
+(孩子不懂事写着玩 大佬勿喷.

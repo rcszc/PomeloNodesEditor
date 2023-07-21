@@ -1,0 +1,132 @@
+type 1
+unique 20
+pos 409.88 139.85
+in_connect 0
+in_connect 1
+in_connect 2
+out_connect 3
+out_connect 4
+NodeGourpEnd
+type 1
+unique 1
+pos 406.2 459.53
+in_connect 5
+in_connect 6
+in_connect 7
+out_connect 8
+out_connect 9
+NodeGourpEnd
+type 2
+unique 2
+pos 720.42 163.74
+in_connect 10
+in_connect 11
+out_connect 12
+NodeGourpEnd
+type 2
+unique 3
+pos 719.83 270.32
+in_connect 13
+in_connect 14
+out_connect 15
+NodeGourpEnd
+type 3
+unique 4
+pos 1019 223.31
+in_connect 16
+in_connect 17
+out_connect 18
+NodeGourpEnd
+type 4
+unique 5
+pos 140.19 321.07
+in_connect 19
+in_connect 20
+out_connect 21
+out_connect 22
+out_connect 23
+NodeGourpEnd
+type 4
+unique 6
+pos 140 463
+in_connect 24
+in_connect 25
+out_connect 26
+out_connect 27
+out_connect 28
+NodeGourpEnd
+type 2
+unique 7
+pos 720 380
+in_connect 29
+in_connect 30
+out_connect 31
+NodeGourpEnd
+type 2
+unique 8
+pos 720 487
+in_connect 32
+in_connect 33
+out_connect 34
+NodeGourpEnd
+type 3
+unique 9
+pos 1020 328
+in_connect 35
+in_connect 36
+out_connect 37
+NodeGourpEnd
+type 3
+unique 10
+pos 1023 442
+in_connect 38
+in_connect 39
+out_connect 40
+NodeGourpEnd
+type 3
+unique 13
+pos 1022.53 559.56
+in_connect 47
+in_connect 48
+out_connect 49
+NodeGourpEnd
+type 3
+unique 14
+pos 411 764
+in_connect 50
+in_connect 51
+out_connect 52
+NodeGourpEnd
+type 3
+unique 15
+pos 1024 677
+in_connect 53
+in_connect 54
+out_connect 55
+NodeGourpEnd
+line 22 1
+line 3 10
+line 4 13
+line 9 14
+line 12 16
+line 15 17
+line 8 11
+line 21 0
+line 21 5
+line 26 2
+line 27 6
+line 26 7
+line 8 30
+line 3 29
+line 4 32
+line 8 33
+line 15 35
+line 31 36
+line 31 38
+line 34 39
+line 34 47
+line 23 51
+line 28 50
+line 52 48
+line 34 53
+line 31 54

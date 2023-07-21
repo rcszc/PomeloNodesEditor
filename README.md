@@ -38,7 +38,8 @@ PneDemo->PushNodeComponent("components_json/demo_cmp_ass1.json");
 ### void EdiorGUI::SystemCompMenu()
 1.0.0 默认组件, 节点组件菜单, 固定编辑器窗口选项, 节点创建, 自定义编辑器主题颜色等. 在渲染 Tick 中调用.
 ### void Ext_EditorFile::NodesEditor_FileMenu(PNE::EdiorGUI& editobj)
-1.0.0 默认扩展组件, 文件操作菜单, 节点数据 保存 & 加载, 参数输入 PNE::EdiorGUI& 使用EdiorGUI中的数据解析函数. 文件数据需要解析创建成节点源数据. 在渲染 Tick 中调用.
+1.0.0 默认扩展组件, 文件操作菜单, 节点数据 保存 & 加载, 参数输入 PNE::EdiorGUI& 使用EdiorGUI中的数据解析函数. 
+文件数据需要解析创建成节点源数据. 在渲染 Tick 中调用.
 ```cpp
  pnedemo.RenderTick([&pnedemo]()
         {

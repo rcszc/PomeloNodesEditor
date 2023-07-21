@@ -3,6 +3,7 @@
 
 相对于老版本重写了框架.
 新增了文件的保存和加载以及编辑器自定义主题.
+保留了极简步骤.
 
 2023-07-21 version 1.0.0 ahpla
 
@@ -51,3 +52,35 @@ PneDemo->PushNodeComponent("components_json/demo_cmp_ass1.json");
 );
 ```
 
+### IODATA::NodesLines EdiorGUI::GetNodesLinesData()
+1.0.0 获取节点编辑器 节点 & 互连 源数据. 返回源数据组结构体.
+```cpp
+struct NodesLines {
+
+        std::vector<pne_datadefine::node_attribute> nodes;
+		std::unordered_map<
+			int32_t,
+			pne_datadefine::node_link_line
+		> lines;
+
+		size_t NodesLines_datasize;
+		
+		NodesLines& operator=(const NodesLines& other) {
+                        if (this != &other) {
+
+                                nodes = other.nodes;
+				lines = other.lines;
+				NodesLines_datasize = other.NodesLines_datasize;
+                }
+                return *this;
+        }
+};
+```
+
+1.0.0 读取解析文件加载 节点 & 互连 数据. 读取解析 => 搜索组件 => 创建节点编辑器源数据.
+```cpp
+void EdiorGUI::ReadNodeLinesData(
+        std::vector<IODATA::SaveNodeData>& nodes,
+        std::vector<IODATA::SaveLineData>& lines
+);
+```

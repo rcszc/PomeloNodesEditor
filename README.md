@@ -96,4 +96,4 @@ PneDemo.RenderEditor = false;
 具体数据结构参考 PomeloNodeEditor_DataDefine.h 文件.
 在 PomeloNodeEditor.cpp PomeloNodeEditor_External.cpp 中使用了windows库.
 目前不能传入纹理句柄, 以及节点字体缩进存在问题.
-持续更新中...
+持续更新中... 2023.07.31 暂时停更1个月.

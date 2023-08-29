@@ -12,7 +12,7 @@ RCSZ.
 - 新增节点数据导出处理类, 过滤掉不必要的数据,  以及提供一些处理工具, 方便后台解析开发.
 - 文件名改为蛇形标注法.
 
-![IMG](https://github.com/rcszc/PomeloNodesEditor/blob/main/profile/PomeloEditor.png)
+![IMG](https://github.com/rcszc/PomeloNodesEditor/pomelo_nodeeditor.png)
 
 ## 1.0.0A
 

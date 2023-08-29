@@ -1,0 +1,41 @@
+{
+  "node color": [ 0.7, 0.0, 1.0, 0.5 ],
+  "node color click": [ 0.7, 0.0, 1.0, 0.7 ],
+  "node title": "FxBlend",
+  "node width": 200.0,
+  "node image": "components_json/demo_texture.png",
+  "node image size": [ 210.0, 105.0 ],
+  "node sample switch": false,
+  "node sample timer": 200,
+  "node execute path switch": true,
+  "input point": [
+    {
+      "point color": [ 0.92, 0.92, 0.92, 1.0 ],
+      "point text": "In.EXE",
+      "point param type": 1
+    },
+    {
+      "point color": [ 1.0, 0.2, 0.0, 1.0 ],
+      "point text": "In.Fx1",
+      "point param type": 2
+    },
+    {
+      "point color": [ 1.0, 0.2, 0.0, 1.0 ],
+      "point text": "In.Fx2",
+      "point param type": 2
+    }
+  ],
+  "output point": [
+    {
+      "point color": [ 0.92, 0.92, 0.92, 1.0 ],
+      "point text": "Out.EXE",
+      "point param type": 1
+    },
+    {
+      "point color": [ 0.0, 1.0, 0.8, 0.82 ],
+      "point text": "Out.Blend",
+      "point param type": 3
+    }
+  ],
+  "node type": 1
+}

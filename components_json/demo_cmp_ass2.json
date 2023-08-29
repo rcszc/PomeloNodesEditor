@@ -1,0 +1,31 @@
+{
+  "node color": [ 0.0, 0.2, 1.0, 0.5 ],
+  "node color click": [ 0.0, 0.2, 1.0, 0.7 ],
+  "node title": "OSC",
+  "node width": 300.0,
+  "node image": "",
+  "node image size": [ 0, 0 ],
+  "node sample switch": true,
+  "node sample timer": 280,
+  "node execute path switch": true,
+  "input point": [
+    {
+      "point color": [ 0.92, 0.92, 0.92, 1.0 ],
+      "point text": "In.EXE",
+      "point param type": 1
+    },
+    {
+      "point color": [ 0.0, 1.0, 0.8, 0.82 ],
+      "point text": "In.Fx",
+      "point param type": 3
+    }
+  ],
+  "output point": [
+    {
+      "point color": [ 0.92, 0.92, 0.92, 1.0 ],
+      "point text": "Out.EXE",
+      "point param type": 1
+    }
+  ],
+  "node type": 2
+}

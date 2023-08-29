@@ -1,0 +1,26 @@
+{
+  "node color": [ 0.7, 1.0, 0.0, 0.5 ],
+  "node color click": [ 0.7, 1.0, 0.0, 0.7 ],
+  "node title": "Function",
+  "node width": 175.0,
+  "node image": "",
+  "node image size": [ 0, 0 ],
+  "node sample switch": false,
+  "node sample timer": 200,
+  "node execute path switch": false,
+  "input point": [
+    {
+      "point color": [ 0.8, 1.0, 0.0, 1.0 ],
+      "point text": "In.Scale",
+      "point param type": 4
+    }
+  ],
+  "output point": [
+    {
+      "point color": [ 1.0, 0.2, 0.0, 1.0 ],
+      "point text": "Out.Func",
+      "point param type": 2
+    }
+  ],
+  "node type": 3
+}

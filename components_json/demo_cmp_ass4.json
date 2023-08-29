@@ -1,0 +1,21 @@
+{
+  "node color": [ 0.7, 0.0, 0.0, 0.5 ],
+  "node color click": [ 0.7, 0.0, 0.0, 0.7 ],
+  "node title": "ExecutionPulse",
+  "node width": 128.0,
+  "node image": "",
+  "node image size": [ 0, 0 ],
+  "node sample switch": false,
+  "node sample timer": 200,
+  "node execute path switch": true,
+  "input point": [
+  ],
+  "output point": [
+    {
+      "point color": [ 0.92, 0.92, 0.92, 1.0 ],
+      "point text": "EXE Begin",
+      "point param type": 1
+    }
+  ],
+  "node type": 4
+}

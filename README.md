@@ -225,6 +225,16 @@ std::vector<size_t> EditorExport::SearchEXEpath(const size_t& node_index, const 
 ```
 如果想深入研究可以看注释, 很多用中文写的.
 
+第三方依赖库:
+- OpenGL GLFW3
+- ImGui
+- ImNodes
+- RapidJSON
+
+| 总行数:  | 测试设备(CPU)  | IDE   |
+| :---:    | :---:         | :---:   |
+|  2149    | i7-13700HX    | VisualStudio2022    |
+
 ## 1.0.0 附加
 具体数据结构参考 PomeloNodeEditor_DataDefine.h 文件.
 在 PomeloNodeEditor.cpp PomeloNodeEditor_External.cpp 中使用了windows库.

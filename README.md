@@ -10,7 +10,7 @@ RCSZ.
 ### 2023-08-29 version 1.1.0 ahpla
 - 新增节点单曲线采样器.
 - 新增节点数据导出处理类, 过滤掉不必要的数据,  以及提供一些处理工具, 方便后台解析开发.
-- 文件名改为蛇形标注法.
+- 文件命名改为蛇形标注法.
 
 ![IMG](https://github.com/rcszc/PomeloNodesEditor/blob/main/pomelo_nodeeditor.png)
 
@@ -180,7 +180,7 @@ std::vector<size_t> EditorExport::SearchEXEpath(const size_t& node_index, const 
 1.1.0 新增采样节点只需要在配置文件中开启就可以使用. 目前位置整个配置更像一个状态机, 因为底层gui毕竟不是qt那种. 
 以下是json配置模板:
 如果开启 "[EXE]" 输入 & 输出 必须为同类型参数(贯穿执行路径).
-```json
+```cpp
 {
   "node color": [ 0.7, 0.0, 1.0, 0.5 ],             // 节点常态颜色 RGBA.
   "node color click": [ 0.7, 0.0, 1.0, 0.7 ],       // 节点点击选择后颜色 RGBA.

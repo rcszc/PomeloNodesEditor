@@ -154,8 +154,9 @@ struct ExpNodePointOut {
 	std::vector<int32_t> point_link_line; // 连接线标识(key), 输出可以多连接.
 };
 ```
-1.1.0 查询工具: 通过节点类型查询所有此类型节点的索引(vector中存储位置).
+1.1.0 查询工具: 通过节点类型查询所有此类型节点的索引.
 ```cpp
+// 因为同一类型节点可能有多个, 所以使用 vector.
 std::vector<size_t> EditorExport::FindTypeNode(const NODE_TYPE& type);
 ```
 1.1.0 查询工具: 通过输入连接点索引查询对应"上"一个节点连接点的标识(输出).

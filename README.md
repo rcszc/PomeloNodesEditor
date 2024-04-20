@@ -1,6 +1,7 @@
 # PomeloNodesEditor
 基于 ImGui(OpenGL GLFW) 和 ImNodes 完善的节点编辑器. 
-RCSZ.
+
+[B站视频](https://www.bilibili.com/video/BV1J8411X7es/)
 > 暂时无限期停更 /滑稽
 
 ### 2023-07-21 version 1.0.0 ahpla

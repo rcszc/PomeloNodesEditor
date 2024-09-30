@@ -1,8 +1,13 @@
 # PomeloNodesEditor
+
+__项目已废弃,__ 请移步到这位大佬制作的[节点编辑器](https://github.com/Fattorino/ImNodeFlow)
+设计的过于复杂, 而且不再带回调, 用处不大(几乎没用)...
+
+---
+
 基于 ImGui(OpenGL GLFW) 和 ImNodes 完善的节点编辑器. 
 
 [B站视频](https://www.bilibili.com/video/BV1J8411X7es/)
-> 暂时无限期停更 /滑稽
 
 ### 2023-07-21 version 1.0.0 ahpla
 - 相对于老版本重写了框架.

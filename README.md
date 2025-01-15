@@ -1,10 +1,10 @@
-# PomeloNodesEditor
+## ⚠️ 项目已废弃 ⚠️ 
 
-### ⚠️ 项目已废弃 ⚠️ 
-
-__请移步到最新重构项目__ [PSAnodeEditor](https://github.com/rcszc/PSAnodeEditor)
+> __请前往最新重构项目:__ [PSAnodeEditor](https://github.com/rcszc/PSAnodeEditor)
 
 ---
+
+# PomeloNodesEditor
 
 基于 ImGui(OpenGL GLFW) 和 ImNodes 完善的节点编辑器. 
 
